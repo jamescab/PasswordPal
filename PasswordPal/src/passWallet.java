@@ -4,31 +4,42 @@ import java.util.Scanner;
 
 public class passWallet {
 	private Map<String,String> wallet;
-	private Scanner in;
+	private Scanner in = new Scanner(System.in);
 	
 	public passWallet() {
 		wallet = new HashMap<String,String>();
-		in = new Scanner(System.in);
 	}
 	
 	public void passWalletMenu() {
-		System.out.println("Welcome to your password wallet! Please select an option:");
-		System.out.println("1. See password wallet");
-		System.out.println("2. Find password for an account");
-		System.out.println("3. Change a password");
-		
-		int option = in.nextInt();
 		boolean keepAsking = true;
 		
 		while (keepAsking) {
+			System.out.println();
+			System.out.println("Welcome to your password wallet! Please select an option:");
+			System.out.println("1. See password wallet");
+			System.out.println("2. Find password for an account");
+			System.out.println("3. Change a password");
+			int option = in.nextInt();
+			
 			switch (option) {
 			case 1:
 				displayWallet();
 				break;
 			case 2:
 				findPass();
+				break;
 			case 3:
 				changePass();
+				break;
+			default:
+				System.out.println("Invalid option. Try again.");
+				break;
+			}
+			
+			System.out.println("Leave wallet? (Y or N)");
+			String response = in.nextLine();
+			if (response.equals("Y")) {
+				keepAsking = false;
 			}
 		}
 	}
@@ -37,15 +48,21 @@ public class passWallet {
 		wallet.put(account, password);
 	}
 	
+	public Map<String,String> getWallet() {
+		return wallet;
+	}
+	
 	public String getPass(String account) {
 		return wallet.get(account);
 	}
 	
 	public void displayWallet() {
 		System.out.println("All accounts and passwords:");
-		wallet.forEach((account, password) -> {
-			System.out.println(account + ": " + password);
-		});
+		if (!wallet.isEmpty()) {
+			wallet.forEach((account, password) -> {
+				System.out.println(account + ": " + password);
+			});
+		}
 	}
 	
 	public void findPass () {
@@ -90,3 +107,4 @@ public class passWallet {
 		}
 	}
 }
+
