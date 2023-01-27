@@ -2,10 +2,9 @@ import java.util.Scanner;
 public class main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);
 		passWallet wallet = new passWallet();
-		passMaker maker = new passMaker();
+		passMaker maker = new passMaker(wallet);
 		boolean runProgram = true;
 		
 		while (runProgram) {
@@ -37,4 +36,3 @@ public class main {
 	}
 
 }
-
