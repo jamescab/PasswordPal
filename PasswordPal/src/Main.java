@@ -1,12 +1,12 @@
 import java.util.Scanner;
-public class main {
+public class Main {
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);
-		passWallet wallet = new passWallet();
-		passMaker maker = new passMaker(wallet);
+		PassWallet wallet = new PassWallet();
+		PassMaker maker = new PassMaker(wallet);
 		boolean runProgram = true;
-		
 		while (runProgram) {
 			System.out.println("");
 			System.out.println("Welcome to Password Pal! Please select an option.");
@@ -17,15 +17,15 @@ public class main {
 			
 			switch(answer) {
 			case 1:
-				System.out.println("Opening password maker...");
+				System.out.println();
 				maker.passMakerMain();
 				break;
 			case 2:
-				System.out.println("Opening password wallet...");
+				System.out.println();
 				wallet.passWalletMenu();
 				break;
 			case 3:
-				System.out.println("Exiting Password Pal. Goodbye!");
+				System.out.println();
 				runProgram = false;
 				break;
 			default:
