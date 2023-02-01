@@ -3,24 +3,27 @@ import java.util.Random;
 import java.util.Scanner;
 import java.lang.Math;
 
-public class passMaker {
+public class PassMaker {
 	private int passLength;
 	private int nonLetter;
-	private passWallet currentWallet;
+	private PassWallet currentWallet;
 	private Scanner in = new Scanner(System.in);
 	
-	public passMaker() {
+	//Make a password with uninitialized wallet
+	public PassMaker() {
 		passLength = 10;
 		nonLetter = 3;
-		currentWallet = new passWallet();
+		currentWallet = new PassWallet();
 	}
 	
-	public passMaker(passWallet wallet) {
+	//Make a password for initialized wallet
+	public PassMaker(PassWallet wallet) {
 		passLength = 10;
 		nonLetter = 3;
 		currentWallet = wallet;
 	}
 	
+	//Main menu for PassMaker
 	public void passMakerMain() {
 		boolean keepAsking = true;
 		while (keepAsking) {
@@ -32,11 +35,11 @@ public class passMaker {
 			
 			switch (option) {
 			case 1:
-				System.out.println("Setting new password...");
+				System.out.println();
 				genPass();
 				break;
 			case 2:
-				System.out.println("Exiting Pass Maker");
+				System.out.println();
 				keepAsking = false;
 				break;
 			default:
@@ -52,18 +55,17 @@ public class passMaker {
 		}
 	}
 	
-	//TODO: Display account title and password
+	//Enters account name and password to wallet
 	public void genPass () {
 		String generatedPass = randomPass();
-		System.out.println("Enter account title: ");
+		System.out.print("Enter account title: ");
 		String inputAccount = in.nextLine();
 		
 		currentWallet.setPass(inputAccount, generatedPass);
-		
 		System.out.println("Password for " + inputAccount + " set to " + generatedPass);
 	}
 	
-	
+	//Generates random password with characteristics defined in class attributes
 	public String randomPass () {
 		String generatedPass = "";
 		int [] nonletterPlaces = getRandomPlaces();
@@ -88,18 +90,16 @@ public class passMaker {
 		
 	}
 	
+	//Calculates where non-letters will be in password
 	public int [] getRandomPlaces () {
 		int [] places = new int [3];
-		System.out.print("random places: ");
 		
 		for (int i = 0; i < places.length; i++) {
 			places[i] = (int) (Math.random() * passLength);
-			System.out.print(places[i] + " ");
 		}
-		
 		Arrays.sort(places);
-		
 		return places;
 	}
 }
+
 
