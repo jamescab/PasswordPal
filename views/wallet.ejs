@@ -1,0 +1,37 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> PasswordPal: Wallet</title>
+        <link rel="stylesheet" href="../public/walletStyle.css">
+    </head>
+    <%- include('./partials/header.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="container">
+            <div class="passPal">
+                <h2>Wallet</h2>
+                <table>
+                    <tr>
+                        <th>Application</th>
+                        <th>Email/Username</th>
+                        <th>Password</th>
+                    </tr>
+                    <% if (passData.length > 0) { %>
+                        <% passData.forEach(data => { %>
+                            <tr>
+                                <td><%= data.app %></td>
+                                <td><%= data.user %></td>
+                                <td><%= data.pass %></td>
+                            </tr>
+                        <% }) %>
+                      <% } else { %>
+                        <tr>
+                            <td>No passwords yet. Add some!</td>
+                        </tr>
+                      <% } %>
+                </table>
+            </div>
+        </div>
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>

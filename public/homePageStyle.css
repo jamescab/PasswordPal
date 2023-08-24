@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+.container {
+    margin: auto;
+    width: 100%;
+    top: 100px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #9672eb, #f0e6c6);
+    padding: 10px;
+}
+.passPal{
+    width: 400px;
+    background: #fff;
+    margin: auto;
+    margin-top: 250px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+.passPal h2{
+    margin-left: 20px;
+    color: #9672eb;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.passPal h2 img {
+    width: 50px;
+    margin-left: 10px;
+}
+.buttonGroup button{
+    margin-left: 90px;
+    background-color: #cda7f8; 
+    border: 1px solid rgb(129, 51, 180);
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    width: 50%;
+    display: block;
+}
+.buttonGroup button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+  }
+  .buttonGroup button:hover{
+    background-color: rgb(129, 51, 180);
+  }
