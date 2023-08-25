@@ -8,7 +8,7 @@ const Card = require('./models/card');
 const app = express();
 
 //connect to mongodb (NEVER LEAVE SIGN IN INFO IN CODE WHEN UR DONE)  
-const dbURI = 'mongodb+srv://<User>:<password>@ppcluster.rgt9i9i.mongodb.net/<cluster>?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://<USER>:<PASSWORD>@ppcluster.rgt9i9i.mongodb.net/<CLUSTER>?retryWrites=true&w=majority';
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));
@@ -24,22 +24,6 @@ app.use((req, res, next) => {
     next();
   });
 
-  //Sample save mongoose route
-  app.get('/add-card', (req,res) => {
-    const card = new Card ({
-        app: 'League of Legends',
-        user: 'LeagueUser@PassPal.com',
-        pass: 'LeaguePass'
-    });
-    card.save()
-        .then((result) => {
-            res.send(result)
-        }).catch((err) => {
-            console.log(err);
-        })
-  });
-
-  //Sample load mongoose route
 //ROUTES
 app.get('/', (req, res) => {
     res.render('index', {title: 'Home'});
@@ -57,6 +41,25 @@ app.get('/wallet', (req, res) => {
     Card.find().collation({locale:'en',strength: 2}).sort({app:1})
         .then((result) => {   
         res.render('wallet', { title: 'Wallet', cards: result});
+        }).catch((err) => {
+            console.log(err);
+        })
+});
+
+//TODO: FIGURE OUT FIND FEATURE
+/*
+app.get('/findDetails', (req, res) => {
+    const appName = req.params.id;
+    console.log(appName);
+  });
+*/
+
+//POST HANDLER
+app.post('/wallet', (req, res) => {
+    const card = new Card(req.body);
+    card.save()
+        .then((result) => {
+            res.redirect('/wallet');
         }).catch((err) => {
             console.log(err);
         })

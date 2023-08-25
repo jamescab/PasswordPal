@@ -14,8 +14,10 @@
                 <h2>Enter the application name of the password you're searching for:</h2>
             </div>
             <div class="row">
-                <input type="text" id="appName" placeholder="Application name here">
-                <button id="searchButton">Search</button>
+                <form action="/findDetails" method="GET">
+                    <input type="text" id="appName" placeholder="Application name here" required>
+                    <button id="searchButton">Search</button>
+                </form>
             </div>
         </div>
         <%- include('./partials/footer.ejs') %>
