@@ -137,13 +137,13 @@
     }
     .createPasswordEntry form{
       max-width: 400px;
-      margin: 0 auto;
+      margin: 0;
     }
     .createPasswordEntry input,
     .createPasswordEntry textarea{
-      display: block;
+      display: flexbox;
       width: 100%;
-      margin: 10px 0;
+      margin: 1px 0;
       padding: 8px;
     }
     .createPasswordEntry label{
@@ -169,4 +169,28 @@
       padding: 6px;
       font-size: 1.2em;
       cursor: pointer;
+    }.details{
+      position: relative;
+    }
+    .delete{
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #d9d2e9;
+      color: #292828;
+      border: 2px solid #292828;
+      border-radius: 50%;
+      padding: 8px;
+    }
+    .delete:hover{
+      cursor: pointer;
+      background: #292828;
+      color: #d9d2e9;
+      border: 2px solid #d9d2e9;
+      box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+    } #detailName, #detailPass, #detailCreatedAt {
+      color:#d9d2e9;
+      text-align: justify;
+      font-family: 'Josefin Sans', sans-serif;
+      padding: 15px;
     }

@@ -8,7 +8,7 @@ const Card = require('./models/card');
 const app = express();
 
 //connect to mongodb (NEVER LEAVE SIGN IN INFO IN CODE WHEN UR DONE)  
-const dbURI = 'mongodb+srv://<USER>:<PASSWORD>@ppcluster.rgt9i9i.mongodb.net/<CLUSTER>?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://<USER>:<PASSWORD>@ppcluster.rgt9i9i.mongodb.net/<COLLECTION>?retryWrites=true&w=majority';
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));
@@ -46,13 +46,28 @@ app.get('/wallet', (req, res) => {
         })
 });
 
-//TODO: FIGURE OUT FIND FEATURE
-/*
-app.get('/findDetails', (req, res) => {
-    const appName = req.params.id;
-    console.log(appName);
+app.get('/wallet/:id', (req, res) => {
+    const id = req.params.id;
+    Card.findById(id)
+      .then(result => {
+        res.render('details', { card: result, title: 'Card Details' });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   });
-*/
+
+app.delete('/wallet/:id', (req, res) => {
+   const id = req.params.id;
+   
+   Card.findByIdAndDelete(id)
+     .then(result => {
+       res.json({ redirect: '/wallet' });
+     })
+     .catch(err => {
+       console.log(err);
+     });
+ });
 
 //POST HANDLER
 app.post('/wallet', (req, res) => {

@@ -17,17 +17,15 @@
                         <th>Password</th>
                     </tr>
                     <% if (cards.length > 0) { %>
-                        <% cards.forEach(data => { %>
-                            <tr>
-                                <td><%= data.app %></td>
-                                <td><%= data.user %></td>
-                                <td><%= data.pass %></td>
-                            </tr>
+                        <% cards.forEach(card => { %>
+                                <tr>
+                                    <td><a class="single" href="/wallet/<%= card._id %>"><%= card.app %></a></td>
+                                    <td><a class="single" href="/wallet/<%= card._id %>"><%= card.user %></a></td>
+                                    <td><a class="single" href="/wallet/<%= card._id %>"><%= card.pass %></a></td>
+                                </tr>
                         <% }) %>
                       <% } else { %>
-                        <tr>
-                            <td>No passwords yet. Add some!</td>
-                        </tr>
+                        <p>No passwords yet. Add some!</p>
                       <% } %>
                 </table>
             </div>
