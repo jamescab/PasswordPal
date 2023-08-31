@@ -127,6 +127,9 @@
       color:#d9d2e9;
       margin-top: 5px;
       margin-bottom: 5px;
+    }#addPass {
+      color:#d9d2e9;
+      padding-bottom: 20px;
     }
     #application, #user, #pass{
       display: flex;
@@ -193,4 +196,4 @@
       text-align: justify;
       font-family: 'Josefin Sans', sans-serif;
       padding: 15px;
-    }
+    } 

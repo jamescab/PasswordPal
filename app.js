@@ -4,11 +4,18 @@ const mongoose = require('mongoose');
 const { render } = require('ejs');
 const Card = require('./models/card');
 
+/*
+TODO:
+- Add randomly generated password
+- Find by app name
+- Styling
+*/
+
 //express app
 const app = express();
 
 //connect to mongodb (NEVER LEAVE SIGN IN INFO IN CODE WHEN UR DONE)  
-const dbURI = 'mongodb+srv://<USER>:<PASSWORD>@ppcluster.rgt9i9i.mongodb.net/<COLLECTION>?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://<Username>:<Password>@ppcluster.rgt9i9i.mongodb.net/<CollectionName>?retryWrites=true&w=majority';
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));
@@ -72,6 +79,7 @@ app.delete('/wallet/:id', (req, res) => {
 //POST HANDLER
 app.post('/wallet', (req, res) => {
     const card = new Card(req.body);
+    console.log(req.body);
     card.save()
         .then((result) => {
             res.redirect('/wallet');
