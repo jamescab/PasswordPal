@@ -6,16 +6,22 @@ const Card = require('./models/card');
 
 /*
 TODO:
-- Add randomly generated password
-- Find by app name
-- Styling
+- Homepage:
+  - centre shape navigation
+  - clean up background
+  - format logo
+- Wallet:
+  - Convert table entries to divs
+  - Card animation
+  - Have it link to details
+  - Think of more details to provide
 */
 
 //express app
 const app = express();
 
 //connect to mongodb (NEVER LEAVE SIGN IN INFO IN CODE WHEN UR DONE)  
-const dbURI = 'mongodb+srv://<Username>:<Password>@ppcluster.rgt9i9i.mongodb.net/<CollectionName>?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://<username>:<password>@ppcluster.rgt9i9i.mongodb.net/<collection>?retryWrites=true&w=majority';
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));

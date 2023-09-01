@@ -4,8 +4,22 @@
       margin: 0;
       padding: 0;
       font-family: 'Josefin Sans', sans-serif;
-      background:  #292828;
+      background: linear-gradient(120deg, #000000, #292828, #67586d, #b393d3);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      height: 100vh;
       box-sizing: border-box;
+    }
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
     .container {
       margin: auto;
@@ -34,7 +48,6 @@
       justify-content: space-between;
       margin-bottom: 60px;
       padding-bottom: 10px;
-      border-bottom: 1px solid #ddd;
       text-transform: uppercase;
     }
     nav ul{
@@ -48,9 +61,15 @@
       margin-left: 20px;
     }
     nav h1{
-      font-size: 3em;
+      font-size: 150px;
+      font-weight: 600;
+      text-align: center;
+      color: #fdfdfe;
+      text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+        0px 0px 20px #b393d3;
     }
     nav p, nav a{
+      text-align: center;
       color: #d9d2e9;
       font-weight: 300;
     }
@@ -71,6 +90,7 @@
     }
     button{
       background-color: #d9d2e9;
+      text-align: center;
       border: 2px;
       border-radius: 5px;
       color: #292828;
@@ -86,20 +106,8 @@
       border-radius: 5px;
       color: #d9d2e9;
     }
-    #searchButton{
-      background-color: #d9d2e9;
-      color: #292828;
-      padding: 5px 16px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-    }
-    #searchButton:hover{
-      background-color: #292828;
-      border: 2px solid #d9d2e9;
-      border-radius: 5px;
-      color: #d9d2e9;
+    .buttonGroup{
+      margin:auto;
     }
     table{
       table-layout: auto;
