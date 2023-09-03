@@ -5,18 +5,75 @@
 </head>
   <%- include('./partials/header.ejs') %>
     <body>
-        
-      <%- include('./partials/homeNav.ejs') %> 
-      <link rel="stylesheet" href="../public/homePageStyle.css">
-        <div class="container">
-            <div class="passwordPal">
-                <div class="buttonGroup">
-                    <button onclick="window.location.href = '/wallet';">See Password Wallet</button>
-                    <!-- <button onclick="window.location.href = '/find';">Find Account/Password</button> -->
-                    <button onclick="window.location.href = '/add';">Add Account/Password</button>
-                </div>
-            </div>
+      <div class="container">
+        <div class="overlay first"></div>
+        <div class="overlay second"></div>
+        <div class="overlay third"></div>
+
+        <!--Landing page logo and slogan-->
+        <div id="logo">
+          <a href="/"><h1 id="logoTitle">PasswordPal</h1></a>
+          <p id="logoSlogan">A place to store all your passwords!</p>
         </div>
-      <%- include('./partials/footer.ejs') %>
+        <!--Landing page buttons-->
+        <div class="buttonGroup">
+            <button class="button button-1" onclick="window.location.href = '/wallet';">See Password Wallet</button>
+            <button class="button button-2" onclick="window.location.href = '/add';">Add Account/Password</button>
+        </div>
+      </div>
+
+      <footer>
+        Copyright &copy; James Cabaral 2023
+      </footer>
+
+      <!--GSAP TweenMax imported library-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <!--Landing page animations-->
+      <script>
+        TweenMax.to('.first', 1.5, {
+          delay: 0,
+          left: '-100%',
+          ease: Power1.easeInOut
+        })
+
+        TweenMax.to('.second', 1.5, {
+          delay: 0.2,
+          left: '-100%',
+          ease: Power1.easeInOut
+        })
+
+        TweenMax.to('.third', 1.5, {
+          delay: 0.4,
+          left: '-100%',
+          ease: Power1.easeInOut
+        })
+
+        TweenMax.from('#logoTitle', 1, {
+          delay: 2.0,
+          opacity: 0,
+          ease: Power1.easeInOut
+        })
+
+        TweenMax.from('#logoSlogan', 1, {
+          delay: 3.0,
+          opacity: 0,
+          y: -50,
+          ease: Power1.easeInOut
+        })
+
+        TweenMax.from('.button-1', 1, {
+          delay: 4.0,
+          opacity: 0,
+          x: -30,
+          ease: Power1.easeInOut
+        })
+
+        TweenMax.from('.button-2', 1, {
+          delay: 4.2,
+          opacity: 0,
+          x: 30,
+          ease: Power1.easeInOut
+        })
+      </script>
     </body>
 </html>

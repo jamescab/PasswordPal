@@ -14,7 +14,6 @@ TODO:
   - Convert table entries to divs
   - Card animation
   - Have it link to details
-  - Think of more details to provide
 */
 
 //express app
@@ -51,6 +50,15 @@ app.get('/find', (req, res) => {
 });
 
 app.get('/wallet', (req, res) => {
+  /* function to find db count IMPORTANT
+    Card.count({})
+        .then((result) => {
+          console.log(result);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+        */
     Card.find().collation({locale:'en',strength: 2}).sort({app:1})
         .then((result) => {   
         res.render('wallet', { title: 'Wallet', cards: result});
