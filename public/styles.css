@@ -198,7 +198,7 @@
       margin-top: 24px;
       margin-bottom: 5px;
     }
-    #application, #user, #pass {
+    #application, #applicationLink, #user, #pass {
       display: flex;
       margin-top: 5px;
       margin-bottom: 5px;
