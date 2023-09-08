@@ -7,9 +7,21 @@
     <%- include('./partials/header.ejs') %>
     <body>
         <div class="container">
-            <div class="passPal">
-                <h2>Wallet</h2>
-                <table>
+            <div class="cardEntry">
+                <div class="cardFace c1">
+                    <h2>Amazon</h2>
+                    <p>AmazonUser@passpal.com</p>
+                    <p>AmazonPassword</p>
+                </div>
+            </div>
+            <a id="addPass" href="/add">+ Add Another Password +</a>
+        </div>
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>
+
+<!--
+                    <table>
                     <tr>
                         <th>Application</th>
                         <th>Email/Username</th>
@@ -27,9 +39,4 @@
                         <p>No passwords yet. Add some!</p>
                       <% } %>
                 </table>
-                <a id="addPass" href="/add">+ Add Another Password +</a>
-            </div>
-        </div>
-        <%- include('./partials/footer.ejs') %>
-    </body>
-</html>
+                -->
