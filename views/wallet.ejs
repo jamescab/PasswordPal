@@ -2,21 +2,57 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> PasswordPal: Wallet</title>
-        <link rel="stylesheet" href="../public/walletStyle.css">
     </head>
     <%- include('./partials/header.ejs') %>
-    <body>
-        <div class="container">
+    <body class="walletBody">
+        <div class="walletContainer">
             <div class="cardEntry">
                 <div class="cardFace c1">
-                    <h2>Amazon</h2>
-                    <p>AmazonUser@passpal.com</p>
-                    <p>AmazonPassword</p>
+                    <div class="content">
+                        <h2>Amazon</h2>
+                        <p>AmazonUser@passpal.com</p>
+                        <p>AmazonPassword</p>
+                    </div>
                 </div>
             </div>
-            <a id="addPass" href="/add">+ Add Another Password +</a>
+            <div class="cardEntry">
+                <div class="cardFace c2">
+                    <div class="content">
+                        <h2>Youtube</h2>
+                        <p>YoutubeUser@passpal.com</p>
+                        <p>YoutubePassword</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cardEntry">
+                <div class="cardFace c3">
+                    <div class="content">
+                        <h2>Netflix</h2>
+                        <p>NetflixUser@passpal.com</p>
+                        <p>NetflixPassword</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cardEntry">
+                <div class="cardFace c4">
+                    <div class="content">
+                        <h2>Spotify</h2>
+                        <p>SpotifyUser@passpal.com</p>
+                        <p>SpotifyPassword</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cardEntry">
+                <div class="cardFace c5">
+                    <div class="content">
+                        <h2>Instagram</h2>
+                        <p>InstagramUser@passpal.com</p>
+                        <p>InstagramPassword</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <%- include('./partials/footer.ejs') %>
+        <!--<a id="addPass" href="/add">+ Add Another Password +</a>-->
     </body>
 </html>
 

@@ -133,6 +133,55 @@
       top: 66.6%;
     }
 
+    /* Wallet Styling */
+    .walletBody {
+      margin: 0;
+      padding: 0;
+      font-family: 'Josefin Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #000111;
+    }
+    .walletContainer {
+      width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-gap: 15px;
+      margin: 0 auto;
+    }
+    .walletContainer .cardEntry {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      margin: 0 auto;
+      background: #fff;
+      border:5px solid #c50756;
+      border-radius: 5px;
+      box-shadow: 0 15px 60px rgba(0,0,0,0.5);
+    }
+    .walletContainer .cardEntry .cardFace {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .walletContainer .cardEntry .cardFace.c1 {
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    .walletContainer .cardEntry .cardFace.c1 h2{
+      margin: 0;
+      padding: 0;
+    }
+
     /* Nav Styling */
     .menu{
       display: flex;
