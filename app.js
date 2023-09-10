@@ -7,11 +7,7 @@ const walletRoutes = require('./routes/walletRoutes');
 /*
 TODO:
 - Homepage:
-  - centre shape navigation
-- Wallet:
-  - Convert table entries to divs
-  - Card animation
-  - Have it link to details
+  - user login
 */
 
 //Express app
