@@ -45,12 +45,6 @@ app.get('/add', (req, res) => {
   res.render('add', { title: 'Add' });
 });
 
-/* Might include this, might not
-router.get('/find', (req, res) => {
-  res.render('find', { title: 'Find' });
-});
-*/
-
 //Wallet Routes
 app.use('/wallet', walletRoutes);
 

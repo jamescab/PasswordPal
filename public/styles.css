@@ -27,17 +27,7 @@
         background-position: 0% 50%;
       }
     }
-    
-    /* General Styling */
-    p, h1, h2, h3, a, ul {
-      margin: 0;
-      padding: 1px;
-      text-decoration: none;
-      color: #9677ec;
-    }
-    h2 {
-      margin-bottom: 40px;
-    }
+  
 
     /* Landing Page Styling */
     .container {
@@ -137,29 +127,55 @@
     .walletBody {
       margin: 0;
       padding: 0;
-      font-family: 'Josefin Sans', sans-serif;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      flex-direction: column;
+      font-family: 'Josefin Sans', sans-serif;
       background: #000111;
     }
+    #addPass {
+      position: absolute;
+      color:#000111;
+      background-color: #9677ec;
+      border-radius: 5px;
+      margin: 10px;
+      left: 800px;
+      height: 50px;
+      font-size: 30px;
+      text-align: center;
+      line-height: 50px;
+    }
+    #addPass:hover {
+      position: absolute;
+      color:#9677ec;
+      background-color: #000111;
+      border: 3px solid #9677ec;
+      border-radius: 5px;
+      margin: 10px;
+      left: 797px;
+      height: 44px;
+      font-size: 30px;
+      text-align: center;
+      line-height: 47px;
+    }
     .walletContainer {
-      width: 1200px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      grid-gap: 15px;
-      margin: 0 auto;
+      position: absolute;
+      left: 12%;
+      width: 1500px;
+      margin-top: 100px;
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      align-items: flex-start;
     }
     .walletContainer .cardEntry {
       position: relative;
-      width: 300px;
-      height: 400px;
-      margin: 0 auto;
-      background: #fff;
-      border:5px solid #c50756;
-      border-radius: 5px;
-      box-shadow: 0 15px 60px rgba(0,0,0,0.5);
+      margin: 20px;
+      width: 275px;
+      height: 150px;
+      background: #ffffff;
+      box-shadow: 0 0 50px #9677ec;
+      border-radius: 10px;
     }
     .walletContainer .cardEntry .cardFace {
       position: absolute;
@@ -171,15 +187,37 @@
       justify-content: center;
       align-items: center;
     }
-
     .walletContainer .cardEntry .cardFace.c1 {
       box-sizing: border-box;
       padding: 20px;
     }
-
-    .walletContainer .cardEntry .cardFace.c1 h2{
+    .walletContainer .cardEntry .cardFace.c1 h2 {
       margin: 0;
       padding: 0;
+    }
+    .walletContainer .cardEntry .cardFace.c2 {
+      background: #111;
+      transition: 0.5s;
+      border-radius: 8px;
+    }
+    .walletContainer .cardEntry:hover .cardFace.c2 {
+      height: 30px;
+    }
+    .walletContainer .cardEntry .cardFace.c2:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .walletContainer .cardEntry .cardFace.c2 h2 {
+      margin: 0;
+      padding: 0;
+      font-size: 3em;
+      color: #fff;
+      transition: 0.5s;
     }
 
     /* Nav Styling */
@@ -204,40 +242,6 @@
       text-align: center;
       color: #9677ec;
       font-weight: 300;
-    }
-
-    /* Footer styling */
-    footer {
-      color: #9677ec;
-      text-align: center;
-      margin: 80px auto 20px;
-    }
-
-    /* Wallet styling */
-    table {
-      table-layout: auto;
-      width: 100%;
-      border:2px #9677ec;
-      font-family: 'Josefin Sans', sans-serif;
-    }
-    th {
-      border: 1px solid #9677ec;
-      color: #000111;
-      padding: 5px;
-      background-color: #9677ec;
-    }
-    td {
-      border: 1px solid #9677ec;
-      color:#9677ec;
-      text-align: center;
-      padding: 15px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-    #addPass {
-      color:#9677ec;
-      padding-bottom: 20px;
     }
 
     /* Add page styling */
