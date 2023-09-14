@@ -2,21 +2,12 @@ const Card = require('../models/card');
 
 //GET wallet display page
 const wallet = (req, res) => {
-    /* function to find db count IMPORTANT
-      Card.count({})
-          .then((result) => {
-            console.log(result);
-          })
-          .catch(err => {
+    Card.find().collation({locale:'en',strength: 2}).sort({app:1})
+        .then((result) => {   
+        res.render('wallet', { title: 'Wallet', cards: result});
+        }).catch((err) => {
             console.log(err);
-          });
-          */
-      Card.find().collation({locale:'en',strength: 2}).sort({router:1})
-          .then((result) => {   
-          res.render('wallet', { title: 'Wallet', cards: result});
-          }).catch((err) => {
-              console.log(err);
-          })
+        });
   }
 
 //POST new card to wallet

@@ -4,12 +4,6 @@ const mongoose = require('mongoose');
 const { render } = require('ejs');
 const walletRoutes = require('./routes/walletRoutes');
 
-/*
-TODO:
-- Homepage:
-  - user login
-*/
-
 //Express app
 const app = express();
 
@@ -37,8 +31,8 @@ app.get('/', (req, res) => {
   });
 
 //GET add card to wallet page
-app.get('/add', (req, res) => {
-  res.render('add', { title: 'Add' });
+app.get('/addCard', (req, res) => {
+  res.render('addCard', { title: 'Add Card to Wallet' });
 });
 
 //Wallet Routes

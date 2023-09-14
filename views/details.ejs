@@ -1,34 +1,34 @@
 <html lang="en">
-<%- include("./partials/header.ejs") %>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title> PasswordPal: <%= card.app%> Details></title>
+          <link rel="stylesheet" href="/styles.css">
+  </head>
 
-<body>
-  <%- include("./partials/nav.ejs") %>
-
-  <div class="detailsContent">
-    <h2><%= card.app %></h2>
-    <div class="content">
-      <p id="detailName">Username/Email: <%= card.user %></p>
-      <p id="detailPass">Password: <%= card.pass %></p>
-      <p id="detailCreatedAt">Created At: <%= card.createdAt %></p>
+  <body>
+    <div class="detailsContent">
+      <h2><%= card.app %></h2>
+      <div class="content">
+        <p class="details">Username/Email: <%= card.user %></p>
+        <p class="details">Password: <%= card.pass %></p>
+        <p class="details">Created At: <%= card.createdAt %></p>
+      </div>
+      <a class="delete" data-doc="<%= card._id %>">DELETE</a>
+      <a id="backFromDetails" href="/wallet"> Back to Wallet </a>
     </div>
-    <a class="delete" data-doc="<%= card._id %>">delete</a>
-  </div>
 
-  <%- include("./partials/footer.ejs") %>
+    <script>
+      const trashcan = document.querySelector('a.delete');
 
-  <script>
-    const trashcan = document.querySelector('a.delete');
+      trashcan.addEventListener('click', (e) => {
+        const endpoint = `/wallet/${trashcan.dataset.doc}`;
 
-    trashcan.addEventListener('click', (e) => {
-      const endpoint = `/wallet/${trashcan.dataset.doc}`;
-
-      fetch(endpoint, {
-        method: 'DELETE',
-      }).then(response => response.json())
-      .then(data => window.location.href = data.redirect)
-      .catch(err => console.log(err));
-    });
-    
-  </script>
-</body>
+        fetch(endpoint, {
+          method: 'DELETE',
+        }).then(response => response.json())
+        .then(data => window.location.href = data.redirect)
+        .catch(err => console.log(err));
+      });
+    </script>
+  </body>
 </html>

@@ -1,0 +1,89 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> PasswordPal: Add Password</title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="overlay first"></div>
+            <div class="overlay second"></div>
+            <div class="overlay third"></div>
+            <div class="passPal">
+                <h2>Add Password</h2>
+            </div>
+            <div class="createPasswordEntry">
+                <form action="/wallet" method="POST">
+                    <label for="appName">Application:</label>
+                    <input type="text" id="application" name="app" required>
+                    <label for="user">Username/Email:</label>
+                    <input type="text" id="user" name="user" required>
+                    <label for="pass">Password:</label>
+                    <input type="text" id="pass" name="pass" required>
+                    <button id="addToWallet">Add to Wallet</button>
+                </form>
+            </div>
+            <a id="backFromAdd">Back to Wallet</a>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            TweenMax.to('.first', 1.5, {
+              delay: 0,
+              left: '-100%',
+              ease: Power1.easeInOut
+            })
+    
+            TweenMax.to('.second', 1.5, {
+              delay: 0.2,
+              left: '-100%',
+              ease: Power1.easeInOut
+            })
+    
+            TweenMax.to('.third', 1.5, {
+              delay: 0.4,
+              left: '-100%',
+              ease: Power1.easeInOut
+            })
+            
+            TweenMax.from('.createPasswordEntry', 1, {
+            delay: 0.1,
+            opacity: 0,
+            ease: Power1.easeInOut
+            })
+
+            TweenMax.from('#backFromAdd', 1, {
+            delay: 0.3,
+            opacity: 0,
+            y: -50,
+            ease: Power1.easeInOut
+            })
+
+            document.getElementById("backFromAdd").onclick = () => {
+              setTimeout(toWallet, 1000);
+              TweenMax.from('.third', 1.5, {
+                delay: 0.0,
+                left: '100%',
+                ease: Power1.easeInOut
+              })
+    
+              TweenMax.from('.second', 1.5, {
+                delay: 0.2,
+                left: '100%',
+                ease: Power1.easeInOut
+              })
+    
+              TweenMax.from('.first', 1.5, {
+                delay: 0.3,
+                left: '100%',
+                ease: Power1.easeInOut
+              })
+              
+            }
+
+            function toWallet() {
+                window.location.href = '/wallet';
+            }
+        </script>
+    </body>
+</html>

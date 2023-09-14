@@ -2,18 +2,22 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> PasswordPal: Wallet</title>
+        <link rel="stylesheet" href="/styles.css">
     </head>
-    <%- include('./partials/header.ejs') %>
     <body class="walletBody">
-        <a id="addPass" href="/add">+ Add Another Password +</a>
+        <div class="overlay first"></div>
+        <div class="overlay second"></div>
+        <div class="overlay third"></div>
+        <a id="addPass">Add Another Password</a>
         <div class="walletContainer">
             <% if (cards.length > 0) { %>
                 <% cards.forEach(card => { %>
                     <div class="cardEntry">
                         <div class="cardFace c1">
                             <div class="content">
-                                <p><a class="single" href="/wallet/<%= card._id %>"><%= card.user %></a></p>
-                                <p><a class="single" href="/wallet/<%= card._id %>"><%= card.pass %></a></p>
+                                <a>Username/Email: <%= card.user %></a><br/><br/>
+                                <a>Password: <%= card.pass %></a><br/><br/>
+                                <a class="expandButton" href="/wallet/<%= card._id %>">Expand</a><br/>
                             </div>
                         </div>
                         <div class="cardFace c2">
@@ -24,74 +28,53 @@
               <% } else { %>
                 <p>No passwords yet. Add some!</p>
               <% } %>
-            <!--
-                <div class="cardEntry">
-                <div class="cardFace c1">
-                    <div class="content">
-                        <p>AmazonUser@passpal.com</p>
-                        <p>AmazonPassword</p>
-                    </div>
-                </div>
-                <div class="cardFace c2">
-                    <h2>Amazon</h2>
-                </div>
-            </div>
-            <div class="cardEntry">
-                <div class="cardFace c1">
-                    <div class="content">
-                        <p>InstagramUser@passpal.com</p>
-                        <p>InstagramPassword</p>
-                    </div>
-                </div>
-                <div class="cardFace c2">
-                    <h2>Instagram</h2>
-                </div>
-            </div>
-            <div class="cardEntry">
-                <div class="cardFace c1">
-                    <div class="content">
-                        <p>SpotifyUser@passpal.com</p>
-                        <p>SpotifyPassword</p>
-                    </div>
-                </div>
-                <div class="cardFace c2">
-                    <h2>Spotify</h2>
-                </div>
-            </div>
-            <div class="cardEntry">
-                <div class="cardFace c1">
-                    <div class="content">
-                        <p>YoutubeUser@passpal.com</p>
-                        <p>YoutubePassword</p>
-                    </div>
-                </div>
-                <div class="cardFace c2">
-                    <h2>Youtube</h2>
-                </div>
-            </div>
-            -->
-            
         </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            TweenMax.to('.first', 1.5, {
+              delay: 0,
+              left: '-100%',
+              ease: Power1.easeInOut
+            })
+    
+            TweenMax.to('.second', 1.5, {
+              delay: 0.2,
+              left: '-100%',
+              ease: Power1.easeInOut
+            })
+    
+            TweenMax.to('.third', 1.5, {
+              delay: 0.4,
+              left: '-100%',
+              ease: Power1.easeInOut
+            })
+    
+            document.getElementById("addPass").onclick = () => {
+              TweenMax.from('.third', 1.5, {
+                delay: 0.0,
+                left: '100%',
+                ease: Power1.easeInOut
+              })
+    
+              TweenMax.from('.second', 1.5, {
+                delay: 0.2,
+                left: '100%',
+                ease: Power1.easeInOut
+              })
+    
+              TweenMax.from('.first', 1.5, {
+                delay: 0.3,
+                left: '100%',
+                ease: Power1.easeInOut
+              })
+              
+              setTimeout(toAddCard, 1000);
+            }
+            
+            function toAddCard() {
+              window.location.href = '/addCard';
+            }
+          </script>
     </body>
 </html>
-
-<!--
-                    <table>
-                    <tr>
-                        <th>Application</th>
-                        <th>Email/Username</th>
-                        <th>Password</th>
-                    </tr>
-                    <% if (cards.length > 0) { %>
-                        <% cards.forEach(card => { %>
-                                <tr>
-                                    <td><a class="single" href="/wallet/<%= card._id %>"><%= card.app %></a></td>
-                                    <td><a class="single" href="/wallet/<%= card._id %>"><%= card.user %></a></td>
-                                    <td><a class="single" href="/wallet/<%= card._id %>"><%= card.pass %></a></td>
-                                </tr>
-                        <% }) %>
-                      <% } else { %>
-                        <p>No passwords yet. Add some!</p>
-                      <% } %>
-                </table>
-                -->
