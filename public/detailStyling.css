@@ -1,0 +1,46 @@
+/* Details styling */
+.detailsContent {
+    position: absolute;
+}
+.content {
+margin-left: 20px;
+}
+.delete {
+position: absolute;
+width: 30px;
+height: 15px;
+top: 80px;
+left: 1000px;
+background: #9677ec;
+color: #000111;
+border: 2px solid #000111;
+border-radius: 30px;
+padding: 10px 35px 10px 5px;
+text-align: center;
+}
+.delete:hover {
+cursor: pointer;
+background: #000111;
+color: #9677ec;
+border: 2px solid #9677ec;
+box-shadow: 1px 2px 3px #9677ec;
+} 
+.details {
+color:#9677ec;
+text-align: justify;
+font-family: 'Josefin Sans', sans-serif;
+padding: 15px;
+}
+#backFromDetails {
+margin-left: 20px;
+color: #000111;
+background-color: #9677ec;
+border: 2px solid #000111;
+padding: 10px;
+border-radius: 10px;
+}
+#backFromDetails:hover {
+color: #9677ec;
+background-color: #000111;
+border: 2px solid #9677ec;
+}

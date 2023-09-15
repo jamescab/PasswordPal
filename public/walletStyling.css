@@ -1,0 +1,91 @@
+/* Wallet Styling */
+.walletBody {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Josefin Sans', sans-serif;
+    background: #000111;
+}
+#addPass {
+position: absolute;
+color:#000111;
+background-color: #9677ec;
+border-radius: 5px;
+margin: 10px;
+left: 800px;
+height: 50px;
+font-size: 30px;
+text-align: center;
+line-height: 50px;
+}
+#addPass:hover {
+position: absolute;
+color:#9677ec;
+background-color: #000111;
+border: 3px solid #9677ec;
+border-radius: 5px;
+margin: 10px;
+left: 797px;
+height: 44px;
+font-size: 30px;
+text-align: center;
+line-height: 47px;
+}
+.walletContainer {
+position: absolute;
+width: 1900px;
+margin-top: 100px;
+height: 100%;
+display: flex;
+justify-content: flex-start;
+flex-wrap: wrap;
+align-items: flex-start;
+}
+.walletContainer .cardEntry {
+position: relative;
+margin: 20px;
+width: 275px;
+height: 150px;
+background: #ffffff;
+box-shadow: 0 0 50px #9677ec;
+border-radius: 10px;
+}
+.walletContainer .cardEntry .cardFace {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.walletContainer .cardEntry .cardFace.c1 .content {
+position: absolute;
+bottom: 40px;
+}
+.walletContainer .cardEntry .cardFace.c2 {
+background: #111;
+transition: 0.5s;
+border-radius: 8px;
+}
+.walletContainer .cardEntry:hover .cardFace.c2 {
+height: 30px;
+}
+.walletContainer .cardEntry .cardFace.c2:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 50%;
+height: 100%;
+background: rgba(255, 255, 255, 0.1);
+}
+.walletContainer .cardEntry .cardFace.c2 h2 {
+margin: 0;
+padding: 0;
+font-size: 3em;
+color: #fff;
+transition: 0.5s;
+}

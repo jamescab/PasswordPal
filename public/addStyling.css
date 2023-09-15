@@ -1,0 +1,55 @@
+/* Add page styling */
+label {
+    display: block;
+    color:#9677ec;
+    margin-top: 24px;
+    margin-bottom: 5px;
+}
+#application, #applicationLink, #user, #pass {
+display: flex;
+margin-top: 5px;
+margin-bottom: 5px;
+padding: 5px;
+height: 20px;
+}
+.createPasswordEntry form {
+max-width: 400px;
+margin: 0;
+}
+.createPasswordEntry input,
+.createPasswordEntry textarea {
+display: flexbox;
+width: 100%;
+margin: 1px 0;
+padding: 8px;
+}
+textarea {
+height: 120px;
+}
+.createPasswordEntry button {
+margin-top: 20px;
+margin-bottom: 20px;
+background: #9677ec;
+color: #000111;
+border: 2px solid #000111;
+border-radius: 5px;
+padding: 6px;
+font-size: 1.2em;
+cursor: pointer;
+}
+.createPasswordEntry button:hover {
+background: #000111;
+color: #9677ec;
+border: 2px solid #9677ec;
+}
+#backFromAdd {
+background-color: #9677ec;
+border: 2px solid #000111;
+padding: 10px;
+border-radius: 5px;
+}
+#backfromAdd:hover {
+background: #000111;
+color: #9677ec;
+border: 2px solid #9677ec;
+}
